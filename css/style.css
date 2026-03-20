@@ -1,0 +1,247 @@
+:root {
+    --bg: #f3f3f1;
+    --text: #000000;
+    --muted: #7d7d7d;
+    --muted-2: #6f6f6f;
+    --white: #ffffff;
+    --shadow-soft: 0 10px 24px rgba(0, 0, 0, 0.08);
+    --shadow-card: 0 12px 24px rgba(0, 0, 0, 0.14);
+    --radius-pill: 999px;
+    --radius-card: 24px;
+  }
+  
+  body {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    color: var(--text);
+    background-color: transparent;
+    background-size: 28px 28px;
+  }
+  
+  body.home {
+    background-color: #000000;
+    background-image: radial-gradient(
+      rgba(255, 255, 255, 0.85) 1px,
+      transparent 1px
+    );
+    background-size: 18px 18px;
+  }
+
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 56px 24px 72px;
+  
+    background-color: #f5f5f3;
+    background-image: radial-gradient(
+        rgba(0, 0, 0, 0.12) 1px,
+        transparent 1px
+      );
+      background-size: 20px 20px;
+  }
+
+  .hero-interaction {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    --x: 50%;
+    --y: 50%;
+    background: radial-gradient(
+      40px circle at var(--x) var(--y),
+      rgba(255, 255, 255, 0.55) 0%,
+      rgba(255, 255, 255, 0.22) 32%,
+      rgba(0, 0, 0, 0.035) 55%,
+      transparent 72%
+    );
+    opacity: 0.85;
+  }
+
+@media (max-width: 600px) {
+.hero-interaction {
+    opacity: 0.45;
+    background:
+    radial-gradient(
+        160px circle at var(--x) var(--y),
+        rgba(255, 255, 255, 0.22),
+        rgba(255, 255, 255, 0.08) 40%,
+        transparent 72%
+    );
+}
+}
+  
+.hero-time-pill {
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  box-shadow: var(--shadow-soft);
+  font-size: 16px;
+  font-weight: 600;
+}
+  
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .hero-name-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  
+  .hero-name {
+    margin: 0;
+    font-size: clamp(48px, 7vw, 84px);
+    line-height: 0.96;
+    letter-spacing: -0.06em;
+    font-weight: 500;
+  }
+  
+  .hero-profile-card {
+    width: 112px;
+    height: 82px;
+    border-radius: 24px;
+    background: #f8f8f8;
+    border: 2px solid #111;
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  
+  .hero-profile-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .hero-tagline-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  
+  .hero-tagline {
+    font-size: clamp(48px, 7vw, 84px);
+    line-height: 0.96;
+    letter-spacing: -0.06em;
+    font-weight: 500;
+    color: #8a8a8a;
+  }
+
+  .hero-badge-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .hero-badge-card {
+    width: 108px;
+    height: 76px;
+    border-radius: 22px;
+    background: #2b2b2b;
+    border: 2px solid #111;
+    box-shadow: var(--shadow-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  
+  .hero-subtext {
+    margin: 0;
+    max-width: 560px;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--muted);
+  }
+  
+  /* Tablet */
+  @media (max-width: 900px) {
+    .hero {
+      padding: 96px 20px 64px;
+    }
+  
+    .hero-name {
+      font-size: clamp(56px, 10vw, 88px);
+    }
+  
+    .hero-tagline {
+      font-size: clamp(38px, 7vw, 62px);
+    }
+  
+    .hero-profile-card {
+      width: 96px;
+      height: 70px;
+    }
+  
+    .hero-badge-card {
+      width: 96px;
+      height: 68px;
+    }
+  }
+  
+  /* Mobile */
+  @media (max-width: 600px) {
+    .hero {
+      padding: 88px 16px 56px;
+    }
+  
+    .hero-time-pill {
+      top: 24px;
+      font-size: 14px;
+      padding: 8px 14px;
+    }
+  
+    .hero-content {
+      gap: 16px;
+    }
+  
+    .hero-name-row,
+    .hero-tagline-row {
+      gap: 12px;
+    }
+  
+    .hero-name {
+      font-size: 48px;
+    }
+  
+    .hero-tagline {
+      font-size: 34px;
+    }
+  
+    .hero-profile-card {
+      width: 84px;
+      height: 62px;
+      border-radius: 20px;
+    }
+  
+    .hero-badge-card {
+      width: 82px;
+      height: 58px;
+      border-radius: 18px;
+    }
+  
+    .hero-subtext {
+      font-size: 14px;
+      max-width: 320px;
+    }
+  }
