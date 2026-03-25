@@ -1,212 +1,220 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Annie Chang Portfolio</title>
 
-    <head>
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    </head>
+    <link rel="stylesheet" href="css/style.css" />
 
-    <body>
-        <nav class="site-nav">
-            <div class="site-nav-inner">
-              <a href="#home" class="site-nav-logo">AC</a>
-          
-              <div class="site-nav-links">
-                <a href="#work">Work</a>
-                <a href="#about">About</a>
-                <a href="playground.html">Play</a>
-                <a href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    /> -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap"
+        rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <div class="site-nav-inner">
+        <a href="#home" class="site-nav-logo" aria-label="Back to top">AC</a>
+
+        <div class="site-nav-links">
+          <a href="#work">Work</a>
+          <a href="#about">About</a>
+          <a href="playground.html">Play</a>
+          <a href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-content">
+          <div class="hero-time-pill" id="seattle-time">Seattle · --:--:--</div>
+
+          <div class="hero-name-row">
+            <h1 class="hero-name">Annie Chang</h1>
+
+            <div class="hero-profile-card">
+              <img src="assets/heroPortrait1.png" alt="Annie Chang portrait" />
+            </div>
+          </div>
+
+          <div class="hero-tagline-row">
+            <span class="hero-tagline">Design</span>
+
+            <div class="hero-badge-card">
+              <img src="assets/heroWeitinglogomando.png" alt="Weiting logo badge" />
+            </div>
+
+            <span class="hero-tagline">that Delivers</span>
+          </div>
+
+          <p class="hero-subtext">
+            Product Designer who brings together systems thinking,<br />
+            visual craft, and human insight to deliver meaningful results.
+          </p>
+        </div>
+      </section>
+
+      <section class="work-section" id="work">
+        <div class="work-container">
+          <div class="work-header">
+            <div class="work-header-line"></div>
+            <p class="work-eyebrow section-eyebrow serif-italic">Work</p>
+            <div class="work-header-line"></div>
+          </div>
+
+          <h2 class="work-title section-title">Recent Case Studies</h2>
+
+          <div class="work-grid">
+            <a class="work-card" href="work/nomo.html">
+              <div class="work-card-image">
+                <img src="assets/workNomo.png" alt="Nomo project cover" loading="lazy" decoding="async" />
+              </div>
+              <div class="work-card-meta">
+                <h3 class="work-card-title">Nomo</h3>
+                <div class="work-card-tags">
+                  <span class="work-tag">Product Design</span>
+                  <span class="work-tag">Food Waste</span>
+                </div>
+              </div>
+            </a>
+
+            <a class="work-card" href="work/multi-me.html">
+              <div class="work-card-image">
+                <img src="assets/workMultiMe.png" alt="Multi-Me project cover" loading="lazy" decoding="async" />
+              </div>
+              <div class="work-card-meta">
+                <h3 class="work-card-title">Multi-Me</h3>
+                <div class="work-card-tags">
+                  <span class="work-tag">Mobile App</span>
+                  <span class="work-tag">Hackathon</span>
+                </div>
+              </div>
+            </a>
+
+            <a class="work-card" href="work/mylo.html">
+              <div class="work-card-image">
+                <img src="assets/workMylo.png" alt="MYLO project cover" loading="lazy" decoding="async" />
+              </div>
+              <div class="work-card-meta">
+                <h3 class="work-card-title">MYLO</h3>
+                <div class="work-card-tags">
+                  <span class="work-tag">Physical Product</span>
+                  <span class="work-tag">Communication</span>
+                </div>
+              </div>
+            </a>
+
+            <a class="work-card" href="work/dubhacks.html">
+              <div class="work-card-image">
+                <img src="assets/workDubHacks.png" alt="DubHacks project cover" loading="lazy" decoding="async" />
+              </div>
+              <div class="work-card-meta">
+                <h3 class="work-card-title">DubHacks</h3>
+                <div class="work-card-tags">
+                  <span class="work-tag">Website</span>
+                  <span class="work-tag">Dashboard</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-section" id="about">
+        <div class="about-container">
+          <div class="about-header">
+            <div class="about-header-line"></div>
+            <p class="about-eyebrow section-eyebrow serif-italic">About</p>
+            <div class="about-header-line"></div>
+          </div>
+
+          <h2 class="about-title section-title">
+            Hi there! I'm Annie
+          </h2>
+
+          <div class="about-main">
+            <div class="about-image-column">
+              <div class="about-image-card">
+                <img src="assets/aboutProfile.png" alt="Annie Chang portrait" loading="lazy" decoding="async" />
               </div>
             </div>
-        </nav>
 
-        <section class="hero" id="home">
-            <div class="hero-interaction" aria-hidden="true"></div>
+            <div class="about-text-column">
+              <div class="about-text-group">
+                <p>
+                  I'm a product designer with a focus on visual communication and user
+                  research. I’m currently studying
+                  <strong>Human-Centered Design &amp; Engineering</strong> at the
+                  <strong>University of Washington</strong>, where I’ve developed a
+                  strong foundation in <strong>user experience</strong>,
+                  <strong>interaction design</strong>, and
+                  <strong>visual storytelling</strong>. My work is guided by empathy and
+                  simplicity, and I enjoy transforming complex ideas into thoughtful,
+                  intuitive experiences.
+                </p>
 
-            <div class="hero-bg"></div>
-          
-            <div class="hero-content">
-              <div class="hero-time-pill" id="seattle-time">Seattle · --:--:--</div>
-
-              <div class="hero-name-row">
-                <h1 class="hero-name">Annie Chang</h1>
-          
-                <div class="hero-profile-card">
-                  <img src="assets/heroPortrait1.png" alt="Annie Chang portrait" />
-                </div>
-              </div>
-          
-              <div class="hero-tagline-row">
-                <span class="hero-tagline">Design</span>
-          
-                <div class="hero-badge-card">
-                  <img src="assets/heroWeitinglogomando.png"/>
-
-                </div>
-          
-                <span class="hero-tagline">that Delivers</span>
-              </div>
-          
-              <p class="hero-subtext">
-                Product Designer who brings together systems thinking,<br />
-                visual craft, and human insight to deliver meaningful results.
-              </p>
-            </div>
-          </section>
-
-          <section class="work-section" id="work">
-            <div class="work-container">
-              <div class="work-header">
-                    <div class="work-header-line"></div>
-                    <p class="work-eyebrow serif-italic">My Work</p>
-                    <div class="work-header-line"></div>
+                <p>
+                  Outside of design, I love exploring cafes for good grassy matcha,
+                  taking photos that capture small details of everyday life, and
+                  rewatching my favorite Studio Ghibli films. Whether I’m designing or
+                  simply observing the world, I’m always inspired by the moments that make
+                  life feel warm, intentional, and human &lt;3
+                </p>
               </div>
 
-                <h2 class="work-title">Recent Case Studies</h2>
-          
-              <div class="work-grid">
-                <a class="work-card" href="work/nomo.html">
-                  <div class="work-card-image">
-                    <img src="assets/workNomo.png" alt="nomo project cover" />
-                  </div>
-                  <div class="work-card-meta">
-                    <h3 class="work-card-title">Nomo</h3>
-                    <div class="work-card-tags">
-                      <span class="work-tag">Product Design</span>
-                      <span class="work-tag">Food Waste</span>
-                    </div>
-                  </div>
-                </a>
-          
-                <a class="work-card" href="work/multi-me.html">
-                  <div class="work-card-image">
-                    <img src="assets/workMultiMe.png" alt="multi-me project cover" />
-                  </div>
-                  <div class="work-card-meta">
-                    <h3 class="work-card-title">Multi-Me</h3>
-                    <div class="work-card-tags">
-                      <span class="work-tag">Mobile App</span>
-                      <span class="work-tag">Hackathon</span>
-                    </div>
-                  </div>
-                </a>
-          
-                <a class="work-card" href="work/mylo.html">
-                  <div class="work-card-image">
-                    <img src="assets/workMylo.png" alt="mylo project cover" />
-                  </div>
-                  <div class="work-card-meta">
-                    <h3 class="work-card-title">MYLO</h3>
-                    <div class="work-card-tags">
-                      <span class="work-tag">Physical Product</span>
-                      <span class="work-tag">Communication</span>
-                    </div>
-                  </div>
-                </a>
-          
-                <a class="work-card" href="work/dubhacks.html">
-                  <div class="work-card-image">
-                    <img src="assets/workDubHacks.png" alt="DubHacks project cover" />
-                  </div>
-                  <div class="work-card-meta">
-                    <h3 class="work-card-title">DubHacks</h3>
-                    <div class="work-card-tags">
-                      <span class="work-tag">Website</span>
-                      <span class="work-tag">Dashboard</span>
-                    </div>
-                  </div>
-                </a>
+              <div class="about-note">
+                <p class="about-note-main">
+                  Some people call me Weiting, Chāng Wěi Tíng
+                </p>
+                <p class="about-note-sub">Let’s connect!</p>
               </div>
             </div>
-          </section>
+          </div>
 
-          <section class="about-section" id="about">
-            <div class="about-container">
-              <div class="about-header">
-                <div class="about-header-line"></div>
-                <p class="about-eyebrow serif-italic">About</p>
-                <div class="about-header-line"></div>
-              </div>
-          
-              <h2 class="about-title">Human-Centered Design & Engineering @ UW</h2>
-          
-              <div class="about-main">
-                <div class="about-image-column">
-                  <div class="about-image-card">
-                    <img src="assets/aboutProfile.png" alt="Annie Chang portrait" />
-                  </div>
-          
-                  <div class="about-bottom-row">
-                    <div class="about-socials">
-                      <a href="#" aria-label="Instagram">ig</a>
-                      <a href="#" aria-label="LinkedIn">in</a>
-                      <a href="#" aria-label="X">x</a>
-                    </div>
-          
-                    <div class="about-note">
-                      <p class="about-note-main">Some people call me Weiting ;))</p>
-                      <p class="about-note-sub">Let’s connect!</p>
-                    </div>
-                  </div>
-                </div>
-          
-                <div class="about-text-column">
-                  <p>
-                    Hey there! I’m Annie Chang, a product designer with a focus on
-                    UX and visual design. I’m currently studying
-                    <strong>Human-Centered Design & Engineering</strong> at the
-                    <strong>University of Washington</strong>, where I’ve developed
-                    a strong foundation in <strong>user experience</strong>,
-                    <strong>interaction design</strong>, and
-                    <strong>visual storytelling</strong>. My work is guided by empathy
-                    and simplicity, and I enjoy transforming complex ideas into
-                    thoughtful, intuitive experiences that make people’s lives easier
-                    and more delightful.
-                  </p>
-          
-                  <p>
-                    Outside of design, I love exploring
-                    <strong>cafes for matcha</strong>, taking photos that capture
-                    small details of everyday life, and rewatching my favorite
-                    <strong>Studio Ghibli films</strong>. Whether I’m designing or
-                    simply observing the world, I’m always inspired by the moments
-                    that make life feel warm, intentional, and human.
-                  </p>
-                </div>
-              </div>
-          
+          <div class="about-bottom">
+            <div class="about-experience-column">
+              <h3 class="about-experience-title">Experience</h3>
+
               <div class="about-experience-list">
                 <div class="about-exp-row">
                   <span class="about-exp-role">Experience Designer (Capstone)</span>
                   <span class="about-exp-org">EA Games</span>
                   <span class="about-exp-date">Jan 2026 → Present</span>
                 </div>
-          
+
                 <div class="about-exp-row">
                   <span class="about-exp-role">Product Design Intern</span>
                   <span class="about-exp-org">Tmind AI</span>
                   <span class="about-exp-date">Jun 2025 → Present</span>
                 </div>
-          
+
                 <div class="about-exp-row">
                   <span class="about-exp-role">President</span>
                   <span class="about-exp-org">Design for America</span>
                   <span class="about-exp-date">Jun 2025 → Present</span>
                 </div>
-          
+
                 <div class="about-exp-row">
                   <span class="about-exp-role">Designer</span>
                   <span class="about-exp-org">DubHacks</span>
                   <span class="about-exp-date">Jan 2024 → Nov 2025</span>
                 </div>
-          
+
                 <div class="about-exp-row">
                   <span class="about-exp-role">Art Director</span>
                   <span class="about-exp-org">Taiwanese Overseas Student Association</span>
                   <span class="about-exp-date">Jun 2023 → May 2024</span>
                 </div>
-          
+
                 <div class="about-exp-row">
                   <span class="about-exp-role">UX Design Intern</span>
                   <span class="about-exp-org">Hugsi</span>
@@ -214,41 +222,114 @@
                 </div>
               </div>
             </div>
-          </section>
 
-          <footer class="site-footer" id="contact">
-            <div class="site-footer-bg"></div>
-          
-            <div class="site-footer-container">
-              <div class="site-footer-left">
-                <p class="site-footer-heading serif-italic">Thank you for stopping by ☺</p>
-                <p class="site-footer-sub">Made with love © Annie Chang 2026</p>
-          
-                <div class="site-footer-divider"></div>
-                <p class="site-footer-meta">Last push - Mar 22, 2026</p>
-                <div class="site-footer-divider"></div>
-    
+            <div class="about-gallery-column">
+              <div class="about-highlights-header">
+                <h3 class="about-experience-title">Highlights</h3>
               </div>
-          
-              <div class="site-footer-right">
-                <div class="site-footer-links-col">
-                  <a href="#home"><span>01</span> Home</a>
-                  <a href="#work"><span>02</span> Work</a>
-                  <a href="#about"><span>03</span> About</a>
-                  <a href="playground.html"><span>04</span> Playground</a>
+
+              <div class="about-hover-board">
+                <div class="about-hover-preview" id="about-hover-preview">
+                  <div class="about-hover-preview-frame">
+                    <img
+                      id="about-hover-preview-image"
+                      src="assets/aboutATD.JPG"
+                      alt="Highlight 01 visual"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
                 </div>
-          
-                <div class="site-footer-links-col">
-                  <a href="resume.pdf" target="_blank" rel="noopener noreferrer"><span>05</span> Resume</a>
-                  <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><span>06</span> LinkedIn</a>
-                  <a href="mailto:your@email.com"><span>07</span> E-mail</a>
-                  <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><span>08</span> Instagram</a>
-                  <a href="https://open.spotify.com/" target="_blank" rel="noopener noreferrer"><span>09</span> Spotify</a>
+                <div class="about-hover-triggers" aria-label="Highlight items">
+                  <button
+                    type="button"
+                    class="about-hover-trigger is-active"
+                    data-preview-image="assets/aboutATD.JPG"
+                    data-preview-alt="Highlight 01 visual"
+                    data-preview-label="01"
+                  >
+                    <span class="about-hover-trigger-text">01</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    class="about-hover-trigger"
+                    data-preview-image="assets/aboutDubHacks.jpg"
+                    data-preview-alt="Highlight 02 visual"
+                    data-preview-label="02"
+                  >
+                    <span class="about-hover-trigger-text">02</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    class="about-hover-trigger"
+                    data-preview-image="assets/aboutFunBunz.jpg"
+                    data-preview-alt="Highlight 03 visual"
+                    data-preview-label="03"
+                  >
+                    <span class="about-hover-trigger-text">03</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    class="about-hover-trigger"
+                    data-preview-image="assets/aboutSki.JPG"
+                    data-preview-alt="Highlight 04 visual"
+                    data-preview-label="04"
+                  >
+                    <span class="about-hover-trigger-text">04</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    class="about-hover-trigger"
+                    data-preview-image="assets/aboutTOSA.JPG"
+                    data-preview-alt="Highlight 05 visual"
+                    data-preview-label="05"
+                  >
+                    <span class="about-hover-trigger-text">05</span>
+                  </button>
                 </div>
               </div>
             </div>
-          </footer>
+          </div>
+        </div>
+      </section>
+    </main>
 
-          <script src="js/main.js"></script>
-    </body>
+    <footer class="site-footer" id="contact">
+      <div class="site-footer-bg"></div>
+
+      <div class="site-footer-container">
+        <div class="site-footer-left">
+          <p class="site-footer-heading serif-italic">Thank you for stopping by ☺</p>
+          <p class="site-footer-sub">Made with love © Annie Chang 2026</p>
+
+          <div class="site-footer-divider"></div>
+          <p class="site-footer-meta">Last push - Mar 24, 2026</p>
+          <div class="site-footer-divider"></div>
+        </div>
+
+        <div class="site-footer-right">
+          <div class="site-footer-links-col">
+            <a href="#home"><span>01</span> Home</a>
+            <a href="#work"><span>02</span> Work</a>
+            <a href="#about"><span>03</span> About</a>
+            <a href="playground.html"><span>04</span> Playground</a>
+          </div>
+
+          <div class="site-footer-links-col">
+            <a href="resume.pdf" target="_blank" rel="noopener noreferrer"><span>05</span> Resume</a>
+            <a href="https://www.linkedin.com/in/weitinganniechang" target="_blank" rel="noopener noreferrer"><span>06</span> LinkedIn</a>
+            <a href="mailto:weiting383036@gmail.com"><span>07</span> E-mail</a>
+            <a href="https://www.instagram.com/weiting_ac/" target="_blank" rel="noopener noreferrer"><span>08</span> Instagram</a>
+            <a href="https://open.spotify.com/user/weiting383036" target="_blank" rel="noopener noreferrer"><span>09</span> Spotify</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
 </html>
