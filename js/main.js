@@ -135,9 +135,13 @@ if (typeof ResizeObserver !== "undefined" && experienceList) {
 }
 
 const navSectionLinks = Array.from(
+  document.querySelectorAll('.case-progress-links a[href^="#"]')
+);
+const fallbackNavSectionLinks = Array.from(
   document.querySelectorAll('.site-nav-links a[href^="#"]')
 );
-const navSections = navSectionLinks
+const activeTrackedLinks = navSectionLinks.length > 0 ? navSectionLinks : fallbackNavSectionLinks;
+const navSections = activeTrackedLinks
   .map((link) => {
     const targetId = link.getAttribute("href");
     if (!targetId) return null;
@@ -146,7 +150,7 @@ const navSections = navSectionLinks
   .filter(Boolean);
 
 function setActiveNavLink(sectionId) {
-  navSectionLinks.forEach((link) => {
+  activeTrackedLinks.forEach((link) => {
     const isActive = link.getAttribute("href") === `#${sectionId}`;
     link.classList.toggle("is-active", isActive);
     if (isActive) {
@@ -159,20 +163,17 @@ function setActiveNavLink(sectionId) {
 
 function getCurrentSectionId() {
   if (navSections.length === 0) return "";
-
-  const markerY = window.innerHeight * 0.36;
-  let activeSection = null;
+  const activationLine = 170;
+  let activeSection = navSections[0];
 
   navSections.forEach((section) => {
     const rect = section.getBoundingClientRect();
-    const isInViewBand = rect.top <= markerY && rect.bottom > markerY;
-
-    if (isInViewBand) {
+    if (rect.top <= activationLine) {
       activeSection = section;
     }
   });
 
-  return activeSection ? activeSection.id : "";
+  return activeSection.id;
 }
 
 let navRafId = null;
@@ -186,9 +187,58 @@ function syncActiveNavOnScroll() {
   });
 }
 
-if (navSectionLinks.length > 0) {
+if (activeTrackedLinks.length > 0) {
+  activeTrackedLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      const target = link.getAttribute("href");
+      if (!target || !target.startsWith("#")) return;
+      setActiveNavLink(target.slice(1));
+    });
+  });
+
   syncActiveNavOnScroll();
   window.addEventListener("scroll", syncActiveNavOnScroll, { passive: true });
   window.addEventListener("resize", syncActiveNavOnScroll);
   window.addEventListener("load", syncActiveNavOnScroll);
+  window.addEventListener("hashchange", syncActiveNavOnScroll);
+}
+
+const topNav = document.querySelector(".site-nav");
+const isCaseStudyPage = document.body.classList.contains("case-study-page");
+
+if (isCaseStudyPage && topNav) {
+  let previousScrollY = window.scrollY;
+  let navHidden = false;
+  let navScrollRaf = null;
+
+  function setNavHidden(hidden) {
+    if (navHidden === hidden) return;
+    navHidden = hidden;
+    topNav.classList.toggle("is-hidden", hidden);
+  }
+
+  function syncCaseStudyNavVisibility() {
+    const currentScrollY = window.scrollY;
+    const scrollDelta = currentScrollY - previousScrollY;
+    const nearTop = currentScrollY < 72;
+
+    if (nearTop) {
+      setNavHidden(false);
+    } else if (scrollDelta > 4) {
+      setNavHidden(true);
+    } else if (scrollDelta < -4) {
+      setNavHidden(false);
+    }
+
+    previousScrollY = currentScrollY;
+    navScrollRaf = null;
+  }
+
+  function handleCaseStudyScroll() {
+    if (navScrollRaf !== null) return;
+    navScrollRaf = window.requestAnimationFrame(syncCaseStudyNavVisibility);
+  }
+
+  window.addEventListener("scroll", handleCaseStudyScroll, { passive: true });
+  window.addEventListener("load", syncCaseStudyNavVisibility);
 }
