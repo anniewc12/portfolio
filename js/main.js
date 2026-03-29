@@ -134,22 +134,26 @@ if (typeof ResizeObserver !== "undefined" && experienceList) {
   observer.observe(experienceList);
 }
 
+const caseProgress = document.querySelector(".case-progress");
 const navSectionLinks = Array.from(
   document.querySelectorAll('.case-progress-links a[href^="#"]')
 );
 const fallbackNavSectionLinks = Array.from(
   document.querySelectorAll('.site-nav-links a[href^="#"]')
 );
-const activeTrackedLinks = navSectionLinks.length > 0 ? navSectionLinks : fallbackNavSectionLinks;
+const activeTrackedLinks =
+  navSectionLinks.length > 0 ? navSectionLinks : fallbackNavSectionLinks;
+
 const navSections = activeTrackedLinks
   .map((link) => {
     const targetId = link.getAttribute("href");
-    if (!targetId) return null;
+    if (!targetId || !targetId.startsWith("#")) return null;
     return document.querySelector(targetId);
   })
   .filter(Boolean);
 
 function setActiveNavLink(sectionId) {
+  if (!sectionId) return;
   activeTrackedLinks.forEach((link) => {
     const isActive = link.getAttribute("href") === `#${sectionId}`;
     link.classList.toggle("is-active", isActive);
@@ -163,7 +167,7 @@ function setActiveNavLink(sectionId) {
 
 function getCurrentSectionId() {
   if (navSections.length === 0) return "";
-  const activationLine = 170;
+  const activationLine = window.innerHeight * 0.34;
   let activeSection = navSections[0];
 
   navSections.forEach((section) => {
@@ -176,13 +180,26 @@ function getCurrentSectionId() {
   return activeSection.id;
 }
 
+function syncProgressVisibility() {
+  if (!caseProgress) return;
+  const overviewSection = document.getElementById("overview");
+  if (!overviewSection) {
+    caseProgress.classList.add("is-visible");
+    return;
+  }
+
+  const heroBottom = overviewSection.offsetTop + overviewSection.offsetHeight;
+  const shouldShow = window.scrollY >= heroBottom - 140;
+  caseProgress.classList.toggle("is-visible", shouldShow);
+}
+
 let navRafId = null;
 function syncActiveNavOnScroll() {
   if (navRafId !== null) return;
-
   navRafId = window.requestAnimationFrame(() => {
     const activeId = getCurrentSectionId();
     setActiveNavLink(activeId);
+    syncProgressVisibility();
     navRafId = null;
   });
 }
@@ -193,6 +210,7 @@ if (activeTrackedLinks.length > 0) {
       const target = link.getAttribute("href");
       if (!target || !target.startsWith("#")) return;
       setActiveNavLink(target.slice(1));
+      setTimeout(syncActiveNavOnScroll, 120);
     });
   });
 

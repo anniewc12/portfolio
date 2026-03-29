@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nomo · Annie Chang</title>
 
-    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,11 +17,11 @@
   <body class="case-study-page">
     <nav class="site-nav" aria-label="Primary navigation">
       <div class="site-nav-inner">
-        <a href="../index.html#home" class="site-nav-logo" aria-label="Back to home">AC</a>
+        <a href="index.html#home" class="site-nav-logo" aria-label="Back to home">AC</a>
 
         <div class="site-nav-links">
-          <a href="../index.html#work">Work</a>
-          <a href="../index.html#about">About</a>
+          <a href="index.html#work">Work</a>
+          <a href="index.html#about">About</a>
           <a href="playground.html">Play</a>
           <a href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
         </div>
@@ -46,7 +46,7 @@
           <div class="case-study-hero-frame">
             <img
               class="case-study-hero-image"
-              src="../assets/nomo/nomoCover.png"
+              src="assets/nomo/nomoCover.png"
               alt="Nomo cover showing mobile product screens"
               loading="eager"
               decoding="async"
@@ -59,6 +59,16 @@
         <div class="container">
           <p class="case-study-wordmark">nomo</p>
           <p class="case-study-overview-subtitle">Saving food becomes easier when progress feels personal, social, and rewarding.</p>
+
+          <div class="case-study-overview-preview">
+            <p class="case-study-meta-title">Preview</p>
+            <p class="case-study-copy">
+              Nomo is a year-long initiative with Design for America focused on tackling food waste at the individual
+              level. Through research-backed design, we created an <strong>end-to-end</strong> solution that
+              <strong>makes food waste reduction accessible and actionable</strong>. Our team developed tools that
+              help people build smarter, more sustainable food habits - one meal at a&nbsp;time.
+            </p>
+          </div>
 
           <div class="case-study-meta-grid case-study-meta-grid--overview">
             <div class="case-study-meta-stack">
@@ -90,16 +100,6 @@
                 <li>Tony Ngo</li>
               </ul>
             </div>
-          </div>
-
-          <div class="case-study-overview-preview">
-            <p class="case-study-meta-title">Preview</p>
-            <p class="case-study-copy">
-              Nomo is a year-long initiative with Design for America focused on tackling food waste at the individual
-              level. Through research-backed design, we created an <strong>end-to-end</strong> solution that
-              <strong>makes food waste reduction accessible and actionable</strong>. Our team developed tools that
-              help people build smarter, more sustainable food habits - one meal at a&nbsp;time.
-            </p>
           </div>
 
           <div class="case-study-intro-callout">
@@ -174,36 +174,29 @@
             </p>
             <p class="case-study-copy">
               We conducted <strong>12 interviews</strong> and <strong>100+ survey responses</strong> to uncover
-              patterns behind daily food habits.
+              patterns behind daily food habits. We found that food waste is shaped by a combination of:
             </p>
-            <p class="case-study-copy case-study-research-findings-lead">
-              We found that food waste is shaped by a combination of:
-            </p>
-            <ul class="case-study-research-list case-study-research-list--intro">
-              <li>Forgetfulness</li>
-              <li>Inconsistent routines</li>
-              <li>Financial motivation</li>
-              <li>External factors like household dynamics and environment</li>
-            </ul>
           </div>
 
-          <div class="case-study-research-grid">
-            <div class="case-study-research-visual">
-              <div class="case-study-research-image">
-                <img class="case-study-research-orange" src="assets/nomo/researchOrangeStats.png" alt="Nomo research orange"/>
-              </div>
+          <div class="case-study-research-map">
+            <div class="case-study-research-map-pill case-study-research-map-pill--left-top">01 Forgetfulness</div>
+            <div class="case-study-research-map-pill case-study-research-map-pill--right-top">02 Inconsistent routines</div>
+            <div class="case-study-research-map-pill case-study-research-map-pill--left-bottom">03 Financial motivation</div>
+            <div class="case-study-research-map-pill case-study-research-map-pill--right-bottom">04 External factors</div>
+
+            <div class="case-study-research-image">
+              <img class="case-study-research-orange" src="assets/nomo/researchOrangeStats.png" alt="Nomo research orange"/>
             </div>
-            <div class="case-study-research-content case-study-research-content--top">
-              <div class="case-study-research-insight">
-                <p class="case-study-meta-title">Methods</p>
-                <p class="case-study-copy">
-                  We used <strong>thematic analysis</strong> to align on shared codes and grouped insights into key themes,
-                   planning, challenges, motivations, and environmental factors.
-                  We then used <strong>hypothesis-driven survey analysis</strong> to connect patterns across responses 
-                  and validate what actually influences behavior.
-                </p>
-              </div>
-            </div>
+          </div>
+
+          <div class="case-study-research-insight case-study-research-methods">
+            <p class="case-study-meta-title">Methods</p>
+            <p class="case-study-copy">
+              We used <strong>thematic analysis</strong> to align on shared codes and grouped insights into key themes,
+              planning, challenges, motivations, and environmental factors. We then used
+              <strong>hypothesis-driven survey analysis</strong> to connect patterns across responses and validate what
+              actually influences behavior.
+            </p>
           </div>
 
           <div class="case-study-research-stats">
@@ -234,7 +227,7 @@
             </article>
           </div>
 
-          <div class="case-study-research-competitive casestudySubSection case-study-context">
+          <div class="case-study-research-competitive casestudySubSection">
             <p class="case-study-meta-title">Competitive analysis</p>
             <p class="case-study-copy">
               While competitors offer a variety of useful features, none of them provide a comprehensive solution that
@@ -309,7 +302,7 @@
               />
             </div>
 
-            <p class="case-study-meta-title case-study-ideation-process-label">Low-Fidelity</p>
+            <p class="case-study-meta-title case-study-ideation-process-label" id="prototype">Low-Fidelity</p>
             <div class="case-study-ideation-image case-study-ideation-image--process">
               <img
                 class="case-study-ideation-image-asset case-study-ideation-image-asset--process"
@@ -321,24 +314,38 @@
         </div>
       </section>
 
-      <section class="section case-study-placeholder casestudysection" id="define-placeholder">
+      <section class="section case-study-iterate case-study-narrow casestudysection" id="iterate">
         <div class="container">
-          <p class="case-study-meta-title">Define</p>
-          <p class="case-study-copy">Section in progress.</p>
-        </div>
-      </section>
+          <div class="case-study-iterate-round">
+            <p class="case-study-meta-title">1st round of usability testing</p>
+            <p class="case-study-problem-title">Evaluating the core user experience across key tasks</p>
+            <p class="case-study-copy">
+              Unclear labels and confusion in navigation, unintuitive interface, and general lack of clarity.
+            </p>
+            <div class="case-study-ideation-image case-study-ideation-image--process case-study-iterate-frame">
+              <img
+                class="case-study-ideation-image-asset case-study-ideation-image-asset--process"
+                src="assets/nomo/nomoUserTest1.png"
+                alt="Nomo first round usability testing insights"
+              />
+            </div>
+          </div>
 
-      <section class="section case-study-placeholder casestudysection" id="prototype">
-        <div class="container">
-          <p class="case-study-meta-title">Prototype</p>
-          <p class="case-study-copy">Section in progress.</p>
-        </div>
-      </section>
-
-      <section class="section case-study-placeholder casestudysection" id="iterate">
-        <div class="container">
-          <p class="case-study-meta-title">Iterate</p>
-          <p class="case-study-copy">Section in progress.</p>
+          <div class="case-study-iterate-round casestudySubSection">
+            <p class="case-study-meta-title">2nd round of usability testing</p>
+            <p class="case-study-problem-title">Assess how users responded to our updated designs and uncover remaining points of friction</p>
+            <p class="case-study-copy">
+              While some improvements were made, users still faced confusion around navigation, clarity of features,
+              and interpreting key information.
+            </p>
+            <div class="case-study-ideation-image case-study-ideation-image--process case-study-iterate-frame">
+              <img
+                class="case-study-ideation-image-asset case-study-ideation-image-asset--process"
+                src="assets/nomo/nomoUserTest2.png"
+                alt="Nomo second round usability testing insights"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -365,9 +372,9 @@
   
           <div class="site-footer-right">
             <div class="site-footer-links-col">
-              <a href="#home"><span>01</span> Home</a>
-              <a href="#work"><span>02</span> Work</a>
-              <a href="#about"><span>03</span> About</a>
+              <a href="index.html#home"><span>01</span> Home</a>
+              <a href="index.html#work"><span>02</span> Work</a>
+              <a href="index.html#about"><span>03</span> About</a>
               <a href="playground.html"><span>04</span> Playground</a>
             </div>
   
