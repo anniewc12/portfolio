@@ -153,7 +153,6 @@ const navSections = activeTrackedLinks
   .filter(Boolean);
 
 function setActiveNavLink(sectionId) {
-  if (!sectionId) return;
   activeTrackedLinks.forEach((link) => {
     const isActive = link.getAttribute("href") === `#${sectionId}`;
     link.classList.toggle("is-active", isActive);
@@ -168,6 +167,22 @@ function setActiveNavLink(sectionId) {
 function getCurrentSectionId() {
   if (navSections.length === 0) return "";
   const activationLine = window.innerHeight * 0.34;
+
+  // On the home page nav, avoid pre-highlighting the first link while
+  // users are still in the hero section above the first tracked section.
+  if (navSectionLinks.length === 0) {
+    let activeSection = null;
+
+    navSections.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= activationLine) {
+        activeSection = section;
+      }
+    });
+
+    return activeSection ? activeSection.id : "";
+  }
+
   let activeSection = navSections[0];
 
   navSections.forEach((section) => {

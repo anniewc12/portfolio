@@ -283,10 +283,19 @@ h1, h2, h3, p {
     height: 100%;
     display: flex;
     align-items: center;
-    gap: 10px;
     width: max-content;
-    padding: 0 10px;
+    padding: 0;
+    will-change: transform;
     animation: hero-logo-roll 14s linear infinite;
+  }
+
+  .hero-logo-group {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-right: 10px;
+    flex-shrink: 0;
   }
 
   .hero-logo-track img {
@@ -305,7 +314,7 @@ h1, h2, h3, p {
       transform: translateX(0);
     }
     to {
-      transform: translateX(-45%);
+      transform: translateX(-50%);
     }
   }
   
