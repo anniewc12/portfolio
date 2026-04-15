@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Playground · Annie Chang</title>
+    <link rel="icon" type="image/png" href="assets/ACFavicon.png" />
 
     <link rel="stylesheet" href="css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -24,99 +25,90 @@
           <a href="index.html#work">Work</a>
           <a href="index.html#about">About</a>
           <a href="playground.html" class="is-active">Play</a>
-          <a href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+          <a href="https://drive.google.com/file/d/1go_f20qvup2b3H4kcbtl6J4yV8tS7FYZ/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume</a>
         </div>
       </div>
     </nav>
 
     <main class="playground-page">
-      <section class="section playground-section" id="playground">
-        <div class="container playground-container">
-          <header class="playground-header">
-            <p class="section-eyebrow serif-italic">Playground</p>
-            <p class="playground-subtitle">
-              A collection of my creative explorations: designs, visuals, and spontaneous ideas that keep me inspired.
-            </p>
-          </header>
+      <section class="playground-section" id="playground">
+        <div class="playground-canvas-shell">
+          <button class="playground-explore-control" type="button" aria-label="Explore another area of the playground">
+            <span>Explore</span>
+            <span class="playground-explore-icon" aria-hidden="true">↗</span>
+          </button>
 
-          <div class="playground-mosaic">
-            <div class="playground-row playground-row--3">
-              <article class="playground-item playground-item--square">
+          <div
+            class="playground-scroll-area"
+            id="playground-scroll-area"
+            tabindex="0"
+            role="region"
+            aria-label="Playground canvas. Scroll or drag to explore in any direction."
+          >
+            <div class="playground-world">
+              <a class="playground-piece piece-01" href="assets/playground/TOSA - TimelessTaiwanMainPoster.png" target="_blank" rel="noopener noreferrer" aria-label="Open Timeless Taiwan main poster">
                 <img src="assets/playground/TOSA - TimelessTaiwanMainPoster.png" alt="Timeless Taiwan main poster" loading="lazy" decoding="async" />
-              </article>
-              <article class="playground-item playground-item--wide">
+              </a>
+              <a class="playground-piece piece-02" href="assets/playground/pgMarvelousMap.webp" target="_blank" rel="noopener noreferrer" aria-label="Open Everyday sensing editorial spread">
                 <img src="assets/playground/pgMarvelousMap.webp" alt="Everyday sensing editorial spread" loading="lazy" decoding="async" />
-              </article>
-              <article class="playground-item playground-item--square">
+              </a>
+              <a class="playground-piece piece-03" href="assets/playground/TOSA - RPGEventFlyer.png" target="_blank" rel="noopener noreferrer" aria-label="Open RPG event flyer design">
                 <img src="assets/playground/TOSA - RPGEventFlyer.png" alt="RPG event flyer design" loading="lazy" decoding="async" />
-              </article>
-            </div>
-
-            <div class="playground-row playground-row--3">
-              <article class="playground-item playground-item--square">
+              </a>
+              <a class="playground-piece piece-04" href="assets/playground/pgMarvelousFlyer.webp" target="_blank" rel="noopener noreferrer" aria-label="Open Marvelous cinematic event poster">
                 <img src="assets/playground/pgMarvelousFlyer.webp" alt="Marvelous cinematic event poster" loading="lazy" decoding="async" />
-              </article>
-              <article class="playground-item playground-item--square">
+              </a>
+              <a class="playground-piece piece-05" href="assets/playground/pgTosaBoard.png" target="_blank" rel="noopener noreferrer" aria-label="Open student organization board artwork">
                 <img src="assets/playground/pgTosaBoard.png" alt="Student organization board artwork" loading="lazy" decoding="async" />
-              </article>
-              <article class="playground-item playground-item--square">
+              </a>
+              <a class="playground-piece piece-06" href="assets/playground/pgTosaTeamPics.gif" target="_blank" rel="noopener noreferrer" aria-label="Open TOSA team collage visual">
                 <img src="assets/playground/pgTosaTeamPics.gif" alt="TOSA team collage visual" loading="lazy" decoding="async" />
-              </article>
-            </div>
-
-            <div class="playground-row playground-row--3-feature">
-              <article class="playground-item playground-item--square">
+              </a>
+              <a class="playground-piece piece-07" href="assets/playground/TOSA - preSchoolEventsTimeline.png" target="_blank" rel="noopener noreferrer" aria-label="Open pre-school event timeline poster">
                 <img src="assets/playground/TOSA - preSchoolEventsTimeline.png" alt="Pre-school event timeline poster" loading="lazy" decoding="async" />
-              </article>
-              <article class="playground-item playground-item--landscape">
+              </a>
+              <a class="playground-piece piece-08" href="assets/playground/pgTosaTtPerformances.gif" target="_blank" rel="noopener noreferrer" aria-label="Open Timeless Taiwan performance visual">
                 <img src="assets/playground/pgTosaTtPerformances.gif" alt="Timeless Taiwan performance visual" loading="lazy" decoding="async" />
-              </article>
-              <article class="playground-item playground-item--square">
+              </a>
+              <a class="playground-piece piece-09" href="assets/playground/pgTosaTtProfiles.gif" target="_blank" rel="noopener noreferrer" aria-label="Open Timeless Taiwan profile visual">
                 <img src="assets/playground/pgTosaTtProfiles.gif" alt="Timeless Taiwan profile visual" loading="lazy" decoding="async" />
-              </article>
-            </div>
-
-            <div class="playground-row playground-row--4">
-              <article class="playground-item playground-item--square">
+              </a>
+              <a class="playground-piece piece-10" href="assets/playground/IXD+DRG.gif" target="_blank" rel="noopener noreferrer" aria-label="Open DubHacks room illustration">
                 <img src="assets/playground/IXD+DRG.gif" alt="DubHacks room illustration" loading="lazy" decoding="async" />
-              </article>
-              <article class="playground-item playground-item--square">
+              </a>
+              <a class="playground-piece piece-11" href="assets/playground/pgDhInstaPosts.gif" target="_blank" rel="noopener noreferrer" aria-label="Open public relations team visual">
                 <img src="assets/playground/pgDhInstaPosts.gif" alt="Public relations team visual" loading="lazy" decoding="async" />
-              </article>
-              <article class="playground-item playground-item--square">
+              </a>
+              <a class="playground-piece piece-12" href="assets/playground/pgTheCrane.webp" target="_blank" rel="noopener noreferrer" aria-label="Open The Crane cover design">
                 <img src="assets/playground/pgTheCrane.webp" alt="The Crane cover design" loading="lazy" decoding="async" />
-              </article>
-              <article class="playground-item playground-item--square">
+              </a>
+              <a class="playground-piece piece-13" href="assets/playground/pgTtTshirt.webp" target="_blank" rel="noopener noreferrer" aria-label="Open Taipei x Seattle t-shirt mockup">
                 <img src="assets/playground/pgTtTshirt.webp" alt="Taipei x Seattle t-shirt mockup" loading="lazy" decoding="async" />
-              </article>
-            </div>
-
-            <div class="playground-row playground-row--4">
-              <article class="playground-item playground-item--square">
+              </a>
+              <a class="playground-piece piece-14" href="assets/playground/pgTtToteBag.webp" target="_blank" rel="noopener noreferrer" aria-label="Open Taipei x Seattle tote bag design">
                 <img src="assets/playground/pgTtToteBag.webp" alt="Taipei x Seattle tote bag design" loading="lazy" decoding="async" />
-              </article>
-              <article class="playground-item playground-item--square">
+              </a>
+              <a class="playground-piece piece-15" href="assets/playground/TOSA - funsongEventFlyer.png" target="_blank" rel="noopener noreferrer" aria-label="Open Funsong event flyer design">
                 <img src="assets/playground/TOSA - funsongEventFlyer.png" alt="Funsong event flyer design" loading="lazy" decoding="async" />
-              </article>
-              <article class="playground-item playground-item--square">
+              </a>
+              <a class="playground-piece piece-16" href="assets/playground/pgTosaTtMap.png" target="_blank" rel="noopener noreferrer" aria-label="Open booth map design">
                 <img src="assets/playground/pgTosaTtMap.png" alt="Booth map design" loading="lazy" decoding="async" />
-              </article>
-              <article class="playground-item playground-item--square">
+              </a>
+              <a class="playground-piece piece-17" href="assets/playground/TOSA - TimelessTaiwanCountdownFlyer.png" target="_blank" rel="noopener noreferrer" aria-label="Open Timeless Taiwan countdown flyer">
                 <img src="assets/playground/TOSA - TimelessTaiwanCountdownFlyer.png" alt="Timeless Taiwan countdown flyer" loading="lazy" decoding="async" />
-              </article>
-            </div>
-
-            <div class="playground-row playground-row--3-end">
-              <article class="playground-item playground-item--square">
+              </a>
+              <a class="playground-piece piece-18" href="assets/playground/pgDHSquare.webp" target="_blank" rel="noopener noreferrer" aria-label="Open DubHacks campaign visual">
                 <img src="assets/playground/pgDHSquare.webp" alt="DubHacks campaign visual" loading="lazy" decoding="async" />
-              </article>
-              <article class="playground-item playground-item--landscape">
-                <img src="assets/playground/pgDhInstaPosts.gif" alt="DubHacks illustrated social visual" loading="lazy" decoding="async" />
-              </article>
-              <article class="playground-item playground-item--landscape">
+              </a>
+              <a class="playground-piece piece-19" href="assets/playground/pgDhBanner.webp" target="_blank" rel="noopener noreferrer" aria-label="Open DubHacks 2025 join us banner">
                 <img src="assets/playground/pgDhBanner.webp" alt="DubHacks 2025 join us banner" loading="lazy" decoding="async" />
-              </article>
+              </a>
             </div>
+          </div>
+
+          <div class="playground-center-anchor" aria-hidden="true">
+            <p class="playground-center-title serif-italic">Bits and pieces of my craft</p>
+            <p class="playground-center-helper">Scroll or drag to explore</p>
           </div>
         </div>
       </section>
@@ -144,7 +136,7 @@
                 </div>
 
                 <div class="site-footer-links-col">
-                <a href="resume.pdf" target="_blank" rel="noopener noreferrer"><span>05</span> Resume</a>
+                <a href="https://drive.google.com/file/d/1go_f20qvup2b3H4kcbtl6J4yV8tS7FYZ/view?usp=sharing" target="_blank" rel="noopener noreferrer"><span>05</span> Resume</a>
                 <a href="https://www.linkedin.com/in/weitinganniechang" target="_blank" rel="noopener noreferrer"><span>06</span> LinkedIn</a>
                 <a href="mailto:weiting383036@gmail.com"><span>07</span> E-mail</a>
                 <a href="https://www.instagram.com/weiting_ac/" target="_blank" rel="noopener noreferrer"><span>08</span> Instagram</a>
@@ -153,5 +145,6 @@
           </div>
         </div>
       </footer>
+      <script src="js/main.js"></script>
     </body>
 </html>
