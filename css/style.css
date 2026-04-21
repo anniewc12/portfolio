@@ -1387,6 +1387,20 @@ h1, h2, h3, p {
   object-position: center bottom;
 }
 
+.case-study-page--multime .case-study-hero-frame {
+  background: transparent;
+  background-image: none;
+  min-height: 0;
+  padding: 0;
+  align-items: stretch;
+}
+
+.case-study-page--multime .case-study-hero-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
 .case-study-overview {
   padding: 42px 24px 24px;
 }
