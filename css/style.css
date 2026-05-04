@@ -73,6 +73,9 @@
   --playground-world-height: 2800px;
   --playground-nav-safe: 112px;
   --playground-piece-radius: 14px;
+  --playground-piece-scale: 0.34;
+  --playground-piece-cluster: 0.45;
+  --playground-row-cluster: 0.24;
 }
 
 * {
@@ -721,8 +724,14 @@ h1, h2, h3, p {
 }
 
 .about-note {
-  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 2px;
+  text-align: right;
   padding-top: var(--space-6);
+  width: 100%;
 }
 
 .about-note-main {
@@ -732,7 +741,7 @@ h1, h2, h3, p {
 }
 
 .about-note-sub {
-  margin: var(--space-1) 0 0;
+  margin: 0;
   font-size: var(--text-xs);
   color: var(--color-text-muted);
 }
@@ -963,6 +972,13 @@ h1, h2, h3, p {
   .about-text-column p {
     font-size: 16px;
     line-height: 1.7;
+  }
+
+  .about-note {
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    gap: 8px;
   }
 
   .about-exp-role,
@@ -1411,6 +1427,10 @@ h1, h2, h3, p {
   letter-spacing: -0.055em;
   font-weight: 500;
   margin-bottom: 12px;
+}
+
+.case-study-page--multime .case-study-wordmark {
+  font-size: 56px;
 }
 
 .case-study-overview-subtitle {
@@ -2222,8 +2242,8 @@ h1, h2, h3, p {
   width: 100vw;
   height: 100vh;
   min-height: 100vh;
-  overflow: auto;
-  cursor: grab;
+  overflow: hidden;
+  cursor: default;
   border-radius: 0;
   scroll-behavior: smooth;
   scrollbar-gutter: stable both-edges;
@@ -2231,11 +2251,11 @@ h1, h2, h3, p {
 }
 
 .playground-scroll-area:active {
-  cursor: grabbing;
+  cursor: default;
 }
 
 .playground-scroll-area.is-dragging {
-  cursor: grabbing;
+  cursor: default;
   user-select: none;
 }
 
@@ -2246,19 +2266,19 @@ h1, h2, h3, p {
 
 .playground-world {
   position: relative;
-  width: var(--playground-world-width);
-  height: calc(var(--playground-world-height) + var(--playground-nav-safe));
-  padding-top: var(--playground-nav-safe);
+  width: min(1880px, calc(100vw - 64px));
+  height: 100vh;
+  padding-top: 86px;
   margin: 0 auto;
-  transform: translate3d(var(--playground-follow-x, 0px), var(--playground-follow-y, 0px), 0);
-  transition: transform 420ms cubic-bezier(0.16, 0.84, 0.22, 1);
+  transform: none !important;
+  transition: none;
 }
 
 .playground-center-anchor {
-  position: fixed;
+  position: absolute;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  top: 52%;
+  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2266,11 +2286,12 @@ h1, h2, h3, p {
   pointer-events: none;
   z-index: 5;
   padding-top: 0;
+  padding-bottom: 0;
 }
 
 .playground-center-title {
   max-width: min(90vw, 840px);
-  font-size: clamp(34px, 4.6vw, 66px);
+  font-size: clamp(44px, 5vw, 72px);
   line-height: 1.03;
   letter-spacing: -0.03em;
   color: rgba(0, 0, 0, 0.48);
@@ -2278,20 +2299,22 @@ h1, h2, h3, p {
 }
 
 .playground-center-helper {
-  margin-top: var(--space-2);
-  padding: 8px 14px;
-  border-radius: var(--radius-pill);
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  font-size: var(--text-xs);
-  line-height: 1;
-  font-weight: var(--weight-medium);
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.56);
+  margin-top: 8px;
+  max-width: min(62vw, 640px);
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-size: clamp(16px, 1.2vw, 20px);
+  line-height: 1.45;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.62);
 }
 
 .playground-explore-control {
+  display: none;
   position: fixed;
   top: 102px;
   right: 34px;
@@ -2338,9 +2361,9 @@ h1, h2, h3, p {
 
 .playground-piece {
   position: absolute;
-  left: var(--x);
-  top: var(--y);
-  width: var(--w);
+  left: var(--lx);
+  top: var(--ty);
+  width: var(--ww);
   z-index: var(--z, 2);
   display: block;
   border-radius: var(--playground-piece-radius);
@@ -2371,31 +2394,31 @@ h1, h2, h3, p {
     outline-offset: 2px;
 }
 
-.piece-01 { --x: 240px;  --y: 220px;  --w: 360px; --tilt: -0.5deg; --drift: -2px; }
-.piece-02 { --x: 820px;  --y: 180px;  --w: 520px; --tilt: 0.4deg;  --drift: 2px; }
-.piece-03 { --x: 1540px; --y: 260px;  --w: 360px; --tilt: 0.5deg;  --drift: -1px; }
-.piece-04 { --x: 2060px; --y: 190px;  --w: 420px; --tilt: -0.4deg; --drift: 1px; }
-.piece-05 { --x: 2620px; --y: 280px;  --w: 390px; --tilt: -0.3deg; --drift: 2px; }
-.piece-06 { --x: 3220px; --y: 230px;  --w: 390px; --tilt: 0.4deg;  --drift: -1px; }
-.piece-07 { --x: 220px;  --y: 980px;  --w: 430px; --tilt: -0.4deg; --drift: 1px; }
-.piece-08 { --x: 940px;  --y: 1040px; --w: 440px; --tilt: 0.5deg;  --drift: -1px; }
-.piece-09 { --x: 1680px; --y: 970px;  --w: 350px; --tilt: -0.4deg; --drift: 2px; }
-.piece-10 { --x: 2180px; --y: 1030px; --w: 690px; --tilt: 0.3deg;  --drift: 0px; }
-.piece-11 { --x: 3060px; --y: 980px;  --w: 500px; --tilt: -0.3deg; --drift: 2px; }
-.piece-12 { --x: 240px;  --y: 1840px; --w: 360px; --tilt: -0.4deg; --drift: 1px; }
-.piece-13 { --x: 740px;  --y: 1900px; --w: 300px; --tilt: 0.5deg;  --drift: -1px; }
-.piece-14 { --x: 1160px; --y: 1830px; --w: 280px; --tilt: -0.4deg; --drift: 2px; }
-.piece-15 { --x: 1620px; --y: 1920px; --w: 420px; --tilt: 0.5deg;  --drift: -1px; }
-.piece-16 { --x: 2220px; --y: 1820px; --w: 470px; --tilt: -0.4deg; --drift: 2px; }
-.piece-17 { --x: 2860px; --y: 1910px; --w: 420px; --tilt: 0.4deg;  --drift: -1px; }
-.piece-18 { --x: 760px;  --y: 2520px; --w: 780px; --tilt: -0.2deg; --drift: 1px; }
-.piece-19 { --x: 1880px; --y: 2520px; --w: 900px; --tilt: 0.2deg;  --drift: -1px; }
+.piece-01 { --lx: 4%;  --ty: 8%;  --ww: 8.5%; --tilt: -0.12deg; --drift: -1px; }
+.piece-02 { --lx: 17%; --ty: 8%;  --ww: 13%;  --tilt: 0.12deg;  --drift: 1px; }
+.piece-03 { --lx: 36%; --ty: 8%;  --ww: 10.5%;--tilt: 0.1deg;   --drift: -1px; }
+.piece-04 { --lx: 52%; --ty: 8%;  --ww: 12.5%;--tilt: -0.1deg;  --drift: 1px; }
+.piece-05 { --lx: 73%; --ty: 8%;  --ww: 11%;  --tilt: -0.1deg;  --drift: 1px; }
+.piece-06 { --lx: 88%; --ty: 8%;  --ww: 8.5%; --tilt: 0.1deg;   --drift: -1px; }
+
+.piece-07 { --lx: 4%;  --ty: 28%; --ww: 9.5%; --tilt: -0.1deg;  --drift: 1px; }
+.piece-08 { --lx: 20%; --ty: 28%; --ww: 12%;  --tilt: 0.12deg;  --drift: -1px; }
+.piece-09 { --lx: 47%; --ty: 28%; --ww: 9%;   --tilt: -0.1deg;  --drift: 1px; }
+.piece-10 { --lx: 61%; --ty: 28%; --ww: 16%;  --tilt: 0.1deg;   --drift: 0px; }
+
+.piece-12 { --lx: 4%;  --ty: 57%; --ww: 9.5%; --tilt: -0.1deg;  --drift: 1px; }
+.piece-13 { --lx: 16%; --ty: 59%; --ww: 7.5%; --tilt: 0.1deg;   --drift: -1px; }
+.piece-14 { --lx: 26%; --ty: 59%; --ww: 7.5%; --tilt: -0.1deg;  --drift: 1px; }
+.piece-15 { --lx: 49%; --ty: 69%; --ww: 9%;   --tilt: 0.1deg;   --drift: -1px; }
+.piece-16 { --lx: 64%; --ty: 57%; --ww: 10.5%;--tilt: -0.1deg;  --drift: 1px; }
+.piece-17 { --lx: 79%; --ty: 57%; --ww: 9%;   --tilt: 0.1deg;   --drift: -1px; }
+
+.piece-18 { --lx: 24%; --ty: 80%; --ww: 15%;  --tilt: -0.1deg;  --drift: 0px; }
+.piece-11 { --lx: 45%; --ty: 80%; --ww: 10%;  --tilt: -0.1deg;  --drift: 0px; }
+.piece-19 { --lx: 60%; --ty: 80%; --ww: 15%;  --tilt: 0.1deg;   --drift: 0px; }
 
 @media (max-width: 1100px) {
-  :root {
-    --playground-world-width: 3200px;
-    --playground-world-height: 2500px;
-  }
+  :root {}
 
   .playground-scroll-area {
     height: 100vh;
@@ -2409,14 +2432,11 @@ h1, h2, h3, p {
 }
 
 @media (max-width: 760px) {
-  :root {
-    --playground-world-width: 2500px;
-    --playground-world-height: 2400px;
-  }
+  :root {}
 
   .playground-center-title {
-    font-size: clamp(28px, 9vw, 42px);
-    max-width: min(90vw, 540px);
+    font-size: clamp(20px, 6.4vw, 30px);
+    max-width: min(92vw, 500px);
   }
 
   .playground-center-helper {
@@ -2430,25 +2450,14 @@ h1, h2, h3, p {
     padding: 10px 12px;
   }
 
-  .piece-01 { --x: 110px;  --y: 220px;  --w: 300px; }
-  .piece-02 { --x: 540px;  --y: 170px;  --w: 430px; }
-  .piece-03 { --x: 1140px; --y: 240px;  --w: 300px; }
-  .piece-04 { --x: 1560px; --y: 180px;  --w: 340px; }
-  .piece-05 { --x: 2010px; --y: 250px;  --w: 320px; }
-  .piece-06 { --x: 110px;  --y: 880px;  --w: 320px; }
-  .piece-07 { --x: 560px;  --y: 940px;  --w: 360px; }
-  .piece-08 { --x: 1040px; --y: 910px;  --w: 360px; }
-  .piece-09 { --x: 1530px; --y: 960px;  --w: 290px; }
-  .piece-10 { --x: 1900px; --y: 990px;  --w: 520px; }
-  .piece-11 { --x: 130px;  --y: 1540px; --w: 390px; }
-  .piece-12 { --x: 650px;  --y: 1640px; --w: 300px; }
-  .piece-13 { --x: 1040px; --y: 1590px; --w: 250px; }
-  .piece-14 { --x: 1390px; --y: 1660px; --w: 230px; }
-  .piece-15 { --x: 1700px; --y: 1600px; --w: 360px; }
-  .piece-16 { --x: 2100px; --y: 1660px; --w: 360px; }
-  .piece-17 { --x: 560px;  --y: 2140px; --w: 340px; }
-  .piece-18 { --x: 980px;  --y: 2140px; --w: 620px; }
-  .piece-19 { --x: 1680px; --y: 2140px; --w: 760px; }
+  .playground-center-title {
+    font-size: clamp(32px, 9vw, 44px);
+  }
+
+  .playground-center-helper {
+    font-size: 14px;
+    max-width: min(86vw, 520px);
+  }
 }
 
 @media (hover: none) and (pointer: coarse) {
